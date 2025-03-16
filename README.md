@@ -9,7 +9,6 @@ Este nuestro repositorio para la clase de sistemas microcontrolados o sisteamas 
 Mendez Brian
 <p>
 Meriño Eduardo
-</p>
 <p>
 Mateo Peña
 </p>
