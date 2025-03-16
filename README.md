@@ -6,9 +6,7 @@ Este nuestro repositorio para la clase de sistemas microcontrolados o sisteamas 
 <p>
 <h4>Integrantes del repositorio</h4>
 </p>
-<p>Mendez Brian
-</p>
-<p>Meriño Eduardo
-</p>
-<p>Mateo Peña
+<p>Mendez Brian<br>
+Meriño Eduardo<br>
+Mateo Peña<br>
 </p>
