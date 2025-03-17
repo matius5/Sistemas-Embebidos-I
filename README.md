@@ -8,9 +8,7 @@ avances del proyecto de aula.
 <p>
 <h4>Integrantes del repositorio</h4>
 </p>
-<ol>
-<li>Mendez Brian<br></li>
-<li>Meriño Eduardo<br></li>
-<li>Mateo Peña<br></li>
-</ol>
+Mendez Brian<br>
+Meriño Eduardo<br>
+Mateo Peña<br>
 </p>
