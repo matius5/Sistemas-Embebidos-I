@@ -1,1 +1,51 @@
+syms t s
+assume(s > 0)  % Aseguramos que s sea positivo para la convergencia
+
+% Definir la función rampa f(t) = t
+f = t;
+
+%% Paso 1: Definir u y dv
+u = t;                % u = t
+du = diff(u, t);      % du = dt
+dv = exp(-s*t);       % dv = e^(-s*t) dt
+v = int(dv, t);       % v = ∫e^(-s*t) dt = -exp(-s*t)/s
+
+%% Paso 2: Calcular u*v
+uv = u * v;         % uv = -t*exp(-s*t)/s
+
+%% Paso 3: Calcular la integral de v*du
+int_vdu = int(v * du, t);  % ∫v*du = ∫(-exp(-s*t)/s) dt
+
+%% Paso 4: Aplicar la fórmula de integración por partes
+F = uv - int_vdu;  % F(t) = uv - ∫v*du
+
+%% Paso 5: Evaluar en los límites de 0 a infinito
+F_inf = limit(F, t, inf);    % Límite cuando t → ∞
+F_0 = subs(F, t, 0);         % Evaluación en t = 0
+
+%% Paso 6: Calcular el resultado final
+resultado = simplify(F_inf - F_0);  % Resultado = F(∞) - F(0)
+
+%% Mostrar los resultados paso a paso
+disp('Paso 1: Definir u, du, dv y v');
+disp(['u = ', char(u)]);
+disp(['du = ', char(du)]);
+disp(['dv = ', char(dv)]);
+disp(['v = ', char(v)]);
+
+disp('Paso 2: Calcular u*v');
+disp(['u*v = ', char(uv)]);
+
+disp('Paso 3: Calcular la integral de v*du');
+disp(['Integral de v*du = ', char(int_vdu)]);
+
+disp('Paso 4: Aplicar integración por partes (F = uv - ∫v du)');
+disp(['F(t) = ', char(F)]);
+
+disp('Paso 5: Evaluar en los límites');
+disp(['Límite cuando t→∞: ', char(F_inf)]);
+disp(['Valor en t = 0: ', char(F_0)]);
+
+disp('Paso 6: Resultado final (Transformada de Laplace de t)');
+disp(['Resultado = ', char(resultado)]);
 
