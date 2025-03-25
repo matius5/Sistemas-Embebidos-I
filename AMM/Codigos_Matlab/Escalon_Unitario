@@ -1,1 +1,33 @@
+syms t s
+assume(s > 0) % Suponemos s>0 para la convergencia
+
+% Definir la función escalón unitario
+f = 1; % Para t >= 0
+
+% Paso 1: Definir el integrando
+integrando = exp(-s*t) * f; % e^(-s*t)*f(t)
+
+% Paso 2: Calcular la integral
+F_t = int(integrando, t); % ∫e^(-s*t) dt = -e^(-s*t)/s
+
+% Paso 3: Evaluar la integral en los límites de 0 a infinito
+F_inf = limit(F_t, t, inf); % Límite cuando t → ∞
+F_0 = subs(F_t, t, 0); % Valor en t = 0
+
+% Paso 4: Calcular la Transformada de Laplace
+resultado = simplify(F_inf - F_0);
+
+% Mostrar los resultados paso a paso
+disp('Paso 1: Definir el integrando');
+disp(['Integrando = ', char(integrando)]);
+
+disp('Paso 2: Calcular la antiderivada');
+disp(['F(t) = ', char(F_t)]);
+
+disp('Paso 3: Evaluar F(t) en los límites');
+disp(['F(inf) = ', char(F_inf)]);
+disp(['F(0) = ', char(F_0)]);
+
+disp('Paso 4: Calcular la Transformada de Laplace de u(t)');
+disp(['Transformada de Laplace de u(t) = ', char(resultado)]);
 
