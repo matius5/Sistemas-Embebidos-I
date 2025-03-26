@@ -1,1 +1,23 @@
+syms t s
 
+% Definir la función impulso unitario (delta de Dirac)
+f = dirac(t);
+
+% Paso 1: Plantear la Transformada de Laplace
+integrando = exp(-s*t) * f;
+
+% Paso 2: Evaluar la integral usando la propiedad de la delta de Dirac
+% Propiedad de la delta: ∫ e^(-st) δ(t) dt = e^(-s*0) = 1
+F = subs(exp(-s*t), t, 0); % Evaluar directamente en t=0
+
+% Mostrar los resultados paso a paso
+disp('Paso 1: Plantear la Transformada de Laplace de δ(t)');
+disp(['Integrando = ', char(integrando)]);
+
+disp('Paso 2: Aplicar la propiedad de la delta de Dirac');
+disp(['Resultado directo: ', char(F)]);
+
+disp(['Resultado final de la Transformada de Laplace de δ(t) = ', char(F)]);
+
+% El símbolo delta (δ) no se muestra de forma correcta en la consola y se
+% muestra como un signo de interrogacion (?).
