@@ -1,1 +1,11 @@
-
+% Definir variables simbólicas
+syms t s omega  
+% Calcular la Transformada de Laplace de cos(omega * t)
+F = laplace(cos(omega * t), t, s);  
+% Mostrar el resultado
+disp('Transformada de Laplace de cos(ωt):');
+disp(F);
+% Mejorar la visualización
+pretty(F);
+% Para una mejor visualizacion cambiare ω por w
+fprintf('Transformada de Laplace de cos(wt): s / (s^2 + w^2) \n');
