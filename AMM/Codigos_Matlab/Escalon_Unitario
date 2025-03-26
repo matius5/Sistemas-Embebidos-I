@@ -17,7 +17,7 @@ F_0 = subs(F_t, t, 0); % Valor en t = 0
 % Paso 4: Calcular la Transformada de Laplace
 resultado = simplify(F_inf - F_0);
 
-% Mostrar los resultados paso a paso
+%% Mostrar los resultados paso a paso
 disp('Paso 1: Definir el integrando');
 disp(['Integrando = ', char(integrando)]);
 
