@@ -10,5 +10,5 @@ avances del proyecto de aula.
 </p>
 Mendez Brian<br>
 Meriño Eduardo<br>
-Mateo Peña<br>
+Peña Mateo<br>
 </p>
