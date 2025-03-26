@@ -1,1 +1,15 @@
-
+% Definir variables simbólicas para el cálculo simbólico en MATLAB
+syms t s omega  
+% Definir la función f(t) = sin(omega * t)
+f = sin(omega * t);    
+% Calcular la Transformada de Laplace de f(t)
+F = laplace(f, t, s);  
+% Mostrar un mensaje en la consola
+disp('Transformada de Laplace de sin(omega t):');  
+% Mostrar el resultado de la Transformada de Laplace en consola
+disp(F);  
+% Mejorar la visualización del resultado en formato más legible
+pretty(F)  
+% Mostrar el resultado con el símbolo omega (ω) correctamente en la consola
+% Para temas practicos cambiare ω por w para que se pueda visualizar mejor
+fprintf('Transformada de Laplace de sin(wt): w / (s^2 + w^2) \n');
