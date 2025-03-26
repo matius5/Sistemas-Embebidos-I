@@ -1,1 +1,9 @@
-
+% Definir variables simbólicas
+syms t s a omega  
+% Calcular la Transformada de Laplace de e^(-at) * sin(omega * t)
+F = laplace(exp(-a * t) * sin(omega * t), t, s);  
+% Mostrar el resultado
+disp('Transformada de Laplace de e^(-at) * sin(ωt):');
+disp(F);
+% Mejorar la visualización
+pretty(F);
