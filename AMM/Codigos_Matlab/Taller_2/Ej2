@@ -1,1 +1,18 @@
+%% Ejercicio 2
+% Definir las funciones de transferencia
+G1 = 2;
+G2 = tf([1], [1 1]);
+G3 = tf([1 1], [1 6]);
+H1 = 1;
+H2 = tf([1], [1 10]);
+G4 = H2/G1;
 
+% Reducimos paso paso
+G5 = series(G1, G2);
+G6 = feedback(G5, H1 + 1); % Retroalimentacion positiva Hl
+G7 = series(G6, G3);
+G8 = feedback(G7, G4);
+G_total = feedback(G8, -1); % Retroalimentacion negativa
+
+disp('La función de transferencia equivalente del sistema es:');
+G_total
