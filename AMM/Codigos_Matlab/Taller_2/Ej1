@@ -1,19 +1,20 @@
 clc; clear; close all;
 
 % Definir las funciones de transferencia dadas
-s = tf('s');
-G1 = 1 / (5*s + 10);
+G1 = tf([1], [5 10]);
 G2 = 100;
-G3 = 2 / (s - 1);
+G3 = tf([2], [1 -1]);
 G4 = 5;
 H1 = 0.2;
 H2 = 50;
+
 % Reducción paso a paso
-G_5 = series(G1, G4);  % G1 * G4
-G_6 = feedback(G_5, H1) % Retroalimentación con H1
-G_7 = feedback(G2, G3) % Retroalimentacion G2 con G3
-G_8 = series(G_6, G_7) % G_6 * G_7 
-G_total = feedback(G_8, H2) % Retroalimentación con H2
+G5 = series(G1, G4); % G1 * G4
+G6 = feedback(G5, H1); % Retroalimentación con H1
+G7 = parallel(G3, G2);
+G8 = series(G6, G7);
+Gtotal = feedback(G8, H2); % Retroalimentación con H2
+
 % Mostrar resultado final
 disp('La función de transferencia equivalente del sistema es:');
-G_total
+Gtotal
