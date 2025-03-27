@@ -1,1 +1,19 @@
+clc; clear; close all;
 
+% Definir las funciones de transferencia dadas
+s = tf('s');
+G1 = 1 / (5*s + 10);
+G2 = 100;
+G3 = 2 / (s - 1);
+G4 = 5;
+H1 = 0.2;
+H2 = 50;
+% Reducción paso a paso
+G_series1 = series(G1, G4);  % G1 * G4
+G_feedback1 = feedback(G_series1, H1) % Retroalimentación con H1
+G_series2 = series(G_feedback1, G2) % Multiplicación con G2
+G_parallel = parallel(G3, G_series2) % Suma de G3 con el bloque anterior
+G_total = feedback(G_parallel, H2) % Retroalimentación con H2
+% Mostrar resultado final
+disp('La función de transferencia equivalente del sistema es:');
+G_total
