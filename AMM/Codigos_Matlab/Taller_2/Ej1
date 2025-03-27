@@ -9,11 +9,11 @@ G4 = 5;
 H1 = 0.2;
 H2 = 50;
 % Reducción paso a paso
-G_series1 = series(G1, G4);  % G1 * G4
-G_feedback1 = feedback(G_series1, H1) % Retroalimentación con H1
-G_series2 = series(G_feedback1, G2) % Multiplicación con G2
-G_parallel = parallel(G3, G_series2) % Suma de G3 con el bloque anterior
-G_total = feedback(G_parallel, H2) % Retroalimentación con H2
+G_5 = series(G1, G4);  % G1 * G4
+G_6 = feedback(G_5, H1) % Retroalimentación con H1
+G_7 = feedback(G2, G3) % Retroalimentacion G2 con G3
+G_8 = series(G_6, G_7) % G_6 * G_7 
+G_total = feedback(G_8, H2) % Retroalimentación con H2
 % Mostrar resultado final
 disp('La función de transferencia equivalente del sistema es:');
 G_total
