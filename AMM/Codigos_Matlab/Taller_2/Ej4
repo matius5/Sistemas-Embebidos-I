@@ -1,1 +1,24 @@
+%% Ejercicio 4
+% Paso 1: Definir funciones de transferencia
+G1 = tf([5], [1 4]);
+G2 = tf([2], [1 3]);
+G3 = tf([3], [1 2]);
+G4 = tf([1], [1 5]);
+G5 = tf([4], [1 6]);
+G6 = tf([2], [1 7]);
+
+% Paso 2: Reducir la retroalimentación unitaria de G2
+H1 = feedback(G2, 1);
+
+% Paso 3: Reducir la combinación en paralelo de G4 y G5
+H2 = parallel(G4, G5);
+
+% Paso 4: Multiplicar en serie G1, H1, G3 y H2
+H3 = series(series(G1, H1), series(G3, H2));
+
+% Paso 5: Aplicar retroalimentación con G6
+T = feedback(H3, G6);
+
+disp('Función de transferencia final:');
+display(T);
 
