@@ -1,3 +1,4 @@
+%% Ejercicio 3
 % Definir la variable de Laplace
 s = tf('s');
 % Definir funciones de transferencia individuales
