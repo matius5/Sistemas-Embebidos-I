@@ -10,7 +10,7 @@ H2 = 50;
 
 % Reducción paso a paso
 G5 = series(G1, G4); % G1 * G4
-G6 = feedback(G5, H1); % Retroalimentación con H1
+G6 = feedback(G5, H1, +1); % Retroalimentación positiva con H1
 G7 = parallel(G3, G2);
 G8 = series(G6, G7);
 Gtotal = feedback(G8, H2); % Retroalimentación con H2
