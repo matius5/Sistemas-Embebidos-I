@@ -1,1 +1,32 @@
+% Ejercicio 8
 
+% Paso 1: Definir Funciones de Transferencia dadas
+G1 = tf([4], [1 2]);
+G2 = tf([5], [1 3]);
+G3 = tf([3], [1 4]);
+H1 = tf([1], [1 1]);
+H2 = tf([2], [1 2]);
+H3 = tf([3], [1 5]);
+
+R1 = H1/G2;
+
+% Paso 2: Reducir la retroalimentación de G2
+R2 = feedback(G2, H2);
+
+% Paso 3: Resolver el paralelo de R1
+R3 = parallel(R1, 1);
+
+% Paso 4: Multiplicar en serie R2, R3 y G3
+R4 = series(R2, series(R3, G3));
+
+% Paso 5: Reducir la retroalimentación de R4 con H3
+R5 = feedback(R4, H3);
+
+% Paso 6: Multiplicar en serie R5 y G1
+R6 = series(R4, G1);
+
+% Paso 7: Reducir la retroalimentación unitaria de R6
+T = feedback(R6, 1);
+
+disp('Función de transferencia final:');
+display(T);
