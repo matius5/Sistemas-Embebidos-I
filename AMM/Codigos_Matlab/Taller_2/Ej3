@@ -1,8 +1,8 @@
 % Definir la variable de Laplace
 s = tf('s');
 % Definir funciones de transferencia individuales
-G1 = 10 / (s + 1);
-G2 = 1 / (2*s + 0.5);
+G1 =tf([10],[1 + 1]);
+G2 = tf([1], [2 + 0.5]);
 G3 = 540;
 G4 = 0.1;
 % Dejo que se muestre el paso a paso del sistema para que se visualice que el proceso matemaico es el mismo que en matlab
