@@ -1,1 +1,15 @@
+% Definir la variable de Laplace
+s = tf('s');
+% Definir funciones de transferencia individuales
+G1 = 10 / (s + 1);
+G2 = 1 / (2*s + 0.5);
+G3 = 540;
+G4 = 0.1;
+% Dejo que se muestre el paso a paso del sistema para que se visualice que el proceso matemaico es el mismo que en matlab
+G5 = series(G1, G2)         % Multiplicación en serie G5 = G1 * G2
+G6 = feedback(G5, G4, -1)   % Realimentación negativa con G4
+G7 = series(G3, G6)         % Multiplicación en serie con G3
+G_total = feedback(G7, 1, -1) % Realimentación negativa con ganancia 1
 
+disp('La función de transferencia equivalente del sistema es:');
+G_total  % Muestra la función de transferencia en formato estándar
